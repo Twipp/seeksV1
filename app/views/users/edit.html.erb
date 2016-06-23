@@ -1,0 +1,24 @@
+
+<p>Hello <%= session[:name]%> </p>
+
+<form action = '/users/update' method = 'post'>
+<input name="authenticity_token" value = "<%= form_authenticity_token %>" type="hidden">
+  <p><label for = "name">Name: </label>
+    <input type = "text" id = 'name' name = 'name' value = "<%= @user[:name]%>"></p>
+  <p><label for = "email">Email: </label>
+    <input type = "text" id = 'email' name = 'email' value = "<%= @user[:email]%>"></p>
+  <p><label for = "password">Password: </label>
+    <input type = "text" id = 'password' name = 'password'></p>
+  <p><label for = "name">Confirm Password: </label>
+    <input type = "text" id = 'password_confirmation' name = 'Password_Confirmation'></p>
+  <input type = 'hidden' name = 'id' value = "<%= @user[:id]%>"
+  <p><button type = "submit">Update</button></p>
+</form>
+
+<form action = '/users/destroy' method = 'post'>
+  <input name="authenticity_token" value = "<%= form_authenticity_token %>" type="hidden">
+  <input type = 'hidden' name = 'id' value = "<%= @user[:id]%>">
+  <p><button type = 'submit'>Delete Account</button></p>
+</form>
+
+<a href = "/users/<%= @user[:id]%>">Go Back</a>

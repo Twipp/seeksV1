@@ -1,0 +1,16 @@
+<h1>HEELLO <%= session[:name ]%></h1>
+
+<form action = "/users/logout" method = "post">
+<input name="authenticity_token" value = "<%= form_authenticity_token %>" type="hidden">
+  <button name = "Log Out">Log Out</button>
+</form>
+
+<p><a href = "/users/edit/">Edit Profile</a></p>
+
+<div style = "border: 1px solid black">
+  <%@secret.each do |secret|%>
+    <%= secret[:content] %>
+  <% end %>
+
+
+</div>
